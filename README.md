@@ -25,3 +25,5 @@ Project structure of Angular appliaction:
                        │   └───search
                        ├───shared   --service
                        └───trends
+                       
+Angular design Screen shots are attached.
