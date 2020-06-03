@@ -5,6 +5,10 @@
 
 Project Structure:
 
-inside src/main/java/com/accolite/
+inside my src/main/java/com/accolite/
    
-                             controller/
+                             controller/Opportunitycontroller.java
+                             service/Opportunityservice.java
+                             model/Opprtunity.java
+                             repository/Opportunityrepository
+                             opportunity/Application.java
