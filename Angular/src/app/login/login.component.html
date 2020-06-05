@@ -1,83 +1,45 @@
-<div class="login-page">
+<!-- <div class="login-page">
       <mat-card >
         <mat-card-header>
          <mat-card-title>Morgon Stanley</mat-card-title>
          <img mat-card-image src="src\app\images\morgan.jpg" alt="morgan">
         </mat-card-header>
         <mat-card-content>
-              <button mat-raised-button class="login-button">Login with Google</button>
+              <button class="login-button" #loginRef>Login with Google</button>
         </mat-card-content>
       </mat-card>
+  </div>  -->
+<!-- <app-login>
+</app-login>   -->
+<!-- <div class="container mt-5">
+  <h2>Google Login</h2>
+  <div class="row mt-5">
+    <div class="col-md-4 mt-2 m-auto ">
+    </div>    
   </div>
+</div>  
+ -->
+
+
+    <!-- <div >
+      <img src="https://i.ytimg.com/vi/oUs3XjhzXn0/maxresdefault.jpg" alt="">
+      <mat-card >
+        <mat-card-header>
+          <mat-card-title>Welcome To Accolite opportunity Management</mat-card-title>
+        </mat-card-header>
+         <mat-card-content>hello</mat-card-content> 
+        <mat-card-actions style="">
+          <button class="loginBtn loginBtn--google " #loginRef>Login with Google</button>      
+        </mat-card-actions>
+      </mat-card>
+    </div>
+ -->
+    
+<div>
+  <img src="https://i.ytimg.com/vi/L9dVB_cp79U/maxresdefault.jpg" alt="">
+    <button class="loginBtn loginBtn--google " #loginRef>Login with Google</button>      
+ </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
- <!-- <mat-card class="card" align="center">
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form class="form">
-        <table class="example-full-width" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-              <input matInput placeholder="Email" type="Email" [(ngModel)]="username" name="username" required>
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-          </mat-form-field></td>
-        </tr></table>
-      </form>
-    </mat-card-content> 
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
-  </mat-card>
-   
-
-
-
-<form action="">
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                    <mat-icon matSuffix>email</mat-icon>
-                </mat-form-field>                
-                <mat-form-field appearance="fill">
-                  <input matInput placeholder="Password" type="password" required minlength="6" name="password" [(ngModel)]="password" #password1="ngModel">
-                    <mat-error *ngIf="password1.errors && password1.errors.required"> Password is required</mat-error>
-                    <mat-error *ngIf="password1.errors && password1.errors.minlength">Password must be of length 6  </mat-error>
-                  <mat-icon matSuffix>lock</mat-icon>
-                </mat-form-field>
-                </form>
-
-
-
-                <mat-checkbox>Remember Me!</mat-checkbox>
-
-<button (click)="login()"
-                  mat-raised-button
-                  color="primary"
-                  class="login-button">
-                  Sign In
-                </button > 
-  
-
-
-
--->

@@ -43,3 +43,16 @@ mat-table {
           font-size: large;
           font-weight: 300;
         }
+        .example-spacer
+        {
+            flex: 1 1;
+        }
+        .example-spacer1
+        {
+                padding-right: 10px;
+        }
+        mat-button
+        {
+            padding-left: 5px;
+            padding-right: 5px;
+        }

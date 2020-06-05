@@ -1,7 +1,19 @@
-  <div>
+<div style="height: 100vh;">
+  <mat-toolbar color="basic">
+      <a mat-flat-button href="http://accolite.com/" target="_blank">Accolite</a>
+      <span class="example-spacer1"></span>
+      <button mat-button class="opp" color="accent" routerLink='/opportunity'>Opportunity</button>
+      <span class="example-spacer1"></span>
+      <button mat-button class="opp" color="warn" routerLink='/trends' >Trends</button>
+      <span class="example-spacer"></span>
+      <button mat-button color="warn">Sridhar</button>
+      <span class="example-spacer1"></span>
+      <button mat-raised-button color="warn" routerLink="/login">Logout</button>
+  </mat-toolbar>  
+<div>
     <mat-card>Job Opportunities</mat-card>
-  </div>
-  <div class="search-div">
+</div>
+<div class="search-div">
     <button mat-raised-button (click)="onCreate()">
         <mat-icon>add</mat-icon>Create
     </button>
@@ -11,8 +23,8 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>        
-  </div>
-  <div class="mat-elevation-z8">
+</div>
+<div class="mat-elevation-z8">
     <mat-table   [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Opportunity Id</mat-header-cell>
@@ -62,6 +74,7 @@
     </mat-table>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
 </div>
+</div>  
   
 
 

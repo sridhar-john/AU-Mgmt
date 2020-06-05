@@ -10,7 +10,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { RootNavComponent } from './root-nav/root-nav.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -33,7 +32,6 @@ import { SearchComponent } from './opportunity/search/search.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RootNavComponent,
     TrendsComponent,
     OpportunityComponent,
     CreateOpComponent,
