@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accolite.exception.ResourceNotFoundException;
 import com.accolite.model.Opportunity;
 import com.accolite.service.Opportunityservice;
 
@@ -46,7 +47,7 @@ public class Opportunitycontroller {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/{id}")
-	public String deleteEmployee(@PathVariable("id") int id)
+	public String deleteEmployee(@PathVariable("id") int id) throws ResourceNotFoundException
 	{
 		return opportunityService.deleteOpportunity(id);
 	}

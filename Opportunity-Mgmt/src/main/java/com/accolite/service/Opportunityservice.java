@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.accolite.exception.ResourceNotFoundException;
 import com.accolite.model.Opportunity;
 import com.accolite.repository.Opportunityrepository;
 
@@ -42,16 +43,12 @@ public class Opportunityservice {
 		return responseString;
 	}
 
-	public String deleteOpportunity(int id) {
-		String responseString;
+	public String deleteOpportunity(int id) throws ResourceNotFoundException {
 		if(opportunityRepository.deleteOpportunity(id))
-			responseString="Deleted SucessFully";
-		else {
-			responseString="Somthing went wrong not added,please try again";
-		}
-		
-		return responseString;
+			return "Deleted SucessFully";
+		throw new ResourceNotFoundException("Somthing went wrong not Deleted,please try again");
 	}
-
-
 }
+
+
+
