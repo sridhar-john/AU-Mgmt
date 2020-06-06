@@ -13,7 +13,7 @@ inside my src/main/java/com/accolite/
                              model/Opprtunity.java
                              repository/Opportunityrepository
                              opportunity/Application.java
-							 exception
+			     exception
 							 
 GlobalExceptionHandling added.
 Unit testing done using Mockito for the CRUD functions.
