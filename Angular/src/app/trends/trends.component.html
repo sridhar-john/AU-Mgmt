@@ -10,7 +10,44 @@
         <span class="example-spacer1"></span>
         <button mat-raised-button color="warn" routerLink="/login">Logout</button>
     </mat-toolbar>  
-    <p>trends</p> 
+<div>
+<mat-card>Job Opportunities</mat-card>
+</div>
+<div>
+<ngx-charts-pie-chart
+  [view]="view1"
+  [scheme]="colorScheme1"
+  [results]="single1"
+  [gradient]="gradient1"
+  [legend]="showLegend1"
+  [legendPosition]="legendPosition1"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+  (select)="onSelect1($event)"
+  (activate)="onActivate1($event)"
+  (deactivate)="onDeactivate1($event)"
+  >
+</ngx-charts-pie-chart>
+</div>
+
+
+<div>
+<ngx-charts-bar-vertical 
+  [view]="view2"
+  [scheme]="colorScheme2"
+  [results]="single2"
+  [gradient]="gradient2"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend2"
+  [legendPosition]="legendPosition2"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect2($event)">
+</ngx-charts-bar-vertical>
+</div>
 </div>  
   
  

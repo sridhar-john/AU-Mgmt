@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {FormGroup,FormControl,Validators} from "@angular/forms";
 import {HttpClient} from '@angular/common/http';
-import { MatTableDataSource } from '@angular/material/table';
 import * as _ from "lodash";
 
 @Injectable({
@@ -9,9 +8,6 @@ import * as _ from "lodash";
 })
 export class CreateOpService {
 
-  // selectedOpportunity: Opportunity;
- //  Opportunity:[];
- // listdata: MatTableDataSource<any>;
 
   constructor(private http: HttpClient) { }
 

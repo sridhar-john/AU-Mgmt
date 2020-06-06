@@ -19,9 +19,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   imports: [
@@ -37,7 +38,6 @@ import {MatSortModule} from '@angular/material/sort';
   MatSidenavModule,
   MatListModule,
   MatTabsModule,
-  MatCheckboxModule,
   ReactiveFormsModule,
   MatGridListModule,
   MatFormFieldModule,
@@ -48,7 +48,8 @@ import {MatSortModule} from '@angular/material/sort';
   CdkTableModule,
   MatPaginatorModule,
   MatSortModule,
-  FormsModule
+  FormsModule,
+  NgxChartsModule
   ],
   exports: [
     CommonModule, 
@@ -63,7 +64,6 @@ import {MatSortModule} from '@angular/material/sort';
     MatSidenavModule,
     MatListModule,
     MatTabsModule,
-    MatCheckboxModule,
     ReactiveFormsModule,
     MatGridListModule,
     MatFormFieldModule,
@@ -74,7 +74,8 @@ import {MatSortModule} from '@angular/material/sort';
     CdkTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule
   ],
 })
 export class CustomMaterialModule { }

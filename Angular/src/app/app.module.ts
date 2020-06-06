@@ -9,7 +9,6 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,11 +26,12 @@ import { NotificationService} from "./shared/notification.service";
 import { SearchComponent } from './opportunity/search/search.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     TrendsComponent,
     OpportunityComponent,
     CreateOpComponent,

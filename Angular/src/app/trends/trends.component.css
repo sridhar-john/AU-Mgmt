@@ -11,3 +11,11 @@ mat-button
     padding-left: 5px;
     padding-right: 5px;
 }
+
+mat-card
+{
+  text-align: center;
+  text-decoration: solid;
+  font-size: large;
+  font-weight: 300;
+}

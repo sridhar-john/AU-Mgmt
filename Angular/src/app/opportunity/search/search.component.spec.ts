@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {MatDialogModule,MatDialogRef} from '@angular/material/dialog'
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -8,7 +11,9 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      declarations: [ SearchComponent ],
+      imports: [HttpClientTestingModule,MatDialogModule,MatSnackBarModule],
+      providers:[{provide:MatDialogRef,useValue:{} } ]
     })
     .compileComponents();
   }));
