@@ -18,13 +18,13 @@ export class CreateOpComponent implements OnInit {
     {id:1,value:1},
     {id:2,value:2},
     {id:3,value:3},
-    {id:3,value:4},
-    {id:3,value:5},
-    {id:3,value:6},
-    {id:3,value:7},
-    {id:3,value:8},
-    {id:3,value:9},
-    {id:3,value:10}
+    {id:4,value:4},
+    {id:5,value:5},
+    {id:6,value:6},
+    {id:7,value:7},
+    {id:8,value:8},
+    {id:9,value:9},
+    {id:10,value:10}
   ];
   location=[
     {id:1,value:"Banglore"},
@@ -48,7 +48,8 @@ export class CreateOpComponent implements OnInit {
 
   public opp =[];
  
-  message:string;
+  submit_message:any;
+  update_message:any;
   
   onSubmit()
   {
@@ -72,7 +73,11 @@ export class CreateOpComponent implements OnInit {
           console.log(this.service.form.value);
         
           let res=this.service.insertOpportunity(this.service.form.value);
-          res.subscribe((data)=>console.log(data));
+          res.subscribe((data)=>{console.log(data);
+            this.submit_message=data;
+            console.log(this.submit_message);
+            
+          });
         }
         else{
           this.js=this.jd.toDateString();
@@ -88,7 +93,12 @@ export class CreateOpComponent implements OnInit {
           console.log("inside update");
           console.log(this.service.form.value);
           let resp=this.service.upadteOpportunity(this.service.form.value);
-          resp.subscribe((data)=>console.log(data));
+          resp.subscribe((data)=>{
+            console.log(data)
+            this.update_message=data;
+            console.log(this.update_message);
+           
+          });
 
         }
 
@@ -106,11 +116,6 @@ export class CreateOpComponent implements OnInit {
   }
   ngOnInit(): void {
  
-    //  this.service.getOpportunity()
-    //  .subscribe(data =>{ this.ds=data;
-    // console.log(data);
-    // });
-    // this.listData = new MatTableDataSource(this.ds);
   }
   
      

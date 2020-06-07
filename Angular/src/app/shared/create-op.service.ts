@@ -44,7 +44,7 @@ export class CreateOpService {
 
    insertOpportunity(opportunity)
   {
-    return this.http.post("http://localhost:8080/opportunity/",opportunity);
+    return this.http.post("http://localhost:8080/opportunity/",opportunity,{responseType:'text' as 'json'});
     
   }
   getOpportunity()  {
@@ -55,20 +55,19 @@ export class CreateOpService {
 
   upadteOpportunity(opportunity)
   {
-    return this.http.put("http://localhost:8080/opportunity/",opportunity);
+    return this.http.put("http://localhost:8080/opportunity/",opportunity,{responseType:'text' as 'json'});
   }
 
   deleteOpportunity(id)
   {
-    console.log("inside del:"+id);
-    console.log("http://localhost:8080/opportunity/"+id);
-    return this.http.delete("http://localhost:8080/opportunity/"+id);
+    return this.http.delete("http://localhost:8080/opportunity/"+id,{responseType:'text' as 'json'});
   }
 
   populateForm(opportunity)
   {
     console.log(opportunity);
     this.form.setValue(opportunity);
+ 
   }
 
 

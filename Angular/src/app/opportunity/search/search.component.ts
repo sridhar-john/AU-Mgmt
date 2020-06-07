@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatDialogConfig} from '@angular/material/dialog';
 import { CreateOpComponent } from '../create-op/create-op.component';
 import { NotificationService } from 'src/app/shared/notification.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -15,14 +16,16 @@ import { NotificationService } from 'src/app/shared/notification.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(public service : CreateOpService,private dialog:MatDialog,private notificationService: NotificationService) { }
+  constructor(public service : CreateOpService,private dialog:MatDialog,private notificationService: NotificationService,public _router: Router) { }
   displayedColumns :any = ["id","opportunity_name","creator_email","hiring_manager","joining_date","skill","actions"];
   dataSource = new MatTableDataSource<Opportunity>();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey:string;
-  
-  
+  username=localStorage.getItem('username');
+  email=localStorage.getItem('email');
+ 
+  delete_message:any;
   ngOnInit(): void {
   
     this.service.getOpportunity().subscribe((data: any[])=>{
@@ -31,7 +34,12 @@ export class SearchComponent implements OnInit {
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
       
-    })
+    }
+    ,(error) => {
+      alert("User is not Authenticated Please login");
+      this._router.navigateByUrl("/login");
+     // alert(JSON.stringify(error, undefined, 2));
+    });
   }
 
   onSearchClear()
@@ -68,9 +76,19 @@ onDelete(id)
 {
   if(confirm("Are You sure  to delete this record?")){
     let res=this.service.deleteOpportunity(id);
-    res.subscribe(data => console.log(data));
+    res.subscribe(data => {
+      console.log(data)
+      this.delete_message=data;
+      console.log(this.delete_message);
+    });
     this.notificationService.warn('Deleted sucessfully!');
   }
 }
+onLogout()
+{
+  localStorage.clear();
+  this._router.navigateByUrl("/login");    
+}
+
 
 }

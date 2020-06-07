@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef ,NgZone} from '@angular/core';
 
 import {Router} from '@angular/router';
-// import {FormControl, Validators,} from '@angular/forms';
+import { User } from '../User';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,19 @@ export class LoginComponent implements OnInit {
 
   auth2: any;
   public name:any;
+  user:User;
+
+  imgurl:string;
+  username:string;
+  email:string;
+  userid:string;
+  token:string;
  
   @ViewChild('loginRef', {static: true }) loginElement: ElementRef;
  
-  constructor(public _router: Router) { }
+  constructor(public _router: Router,private service: UserService,private ngZone: NgZone) {
+         this.user=new User();
+   }
  
   ngOnInit() {
  
@@ -24,7 +34,8 @@ export class LoginComponent implements OnInit {
 
 
  
-  prepareLoginButton() {
+  prepareLoginButton() 
+  {
  
     this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
       (googleUser) => {
@@ -35,16 +46,43 @@ export class LoginComponent implements OnInit {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
+  
         
-        this.name=profile.getName();
-        this._router.navigateByUrl("/opportunity");
+        this.imgurl=profile.getImageUrl();
+        this.username=profile.getName();
+        this.email= profile.getEmail();
+        this.userid=profile.getId();
+        this.token=googleUser.getAuthResponse().id_token;
        
-      }, (error) => {
+
+        
+        localStorage.setItem('token',this.userid);
+        localStorage.setItem('username',this.username);
+        localStorage.setItem('email',this.email);
+        localStorage.setItem('img',this.imgurl);
+        
+         let resp=this.service.checkUser();
+         
+         resp.subscribe(result => this.ngZone.run(() =>{
+           console.log(result)
+            if(result === "Login sucessfull and User is Authenticated")
+            {
+             this._router.navigateByUrl("/opportunity");
+            }
+            else
+            {
+             this._router.navigateByUrl("/login");    
+            }
+        
+      },(error) => {
         alert(JSON.stringify(error, undefined, 2));
-      });
+      }));
  
+    });
+
   }
-  googleSDK() {
+  googleSDK() 
+  {
  
     window['googleSDKLoaded'] = () => {
       window['gapi'].load('auth2', () => {
@@ -64,8 +102,9 @@ export class LoginComponent implements OnInit {
       js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'google-jssdk'));
- 
+  
   }
+
   
 }
 

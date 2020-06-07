@@ -6,9 +6,13 @@
       <span class="example-spacer1"></span>
       <button mat-button class="opp" color="warn" routerLink='/trends' >Trends</button>
       <span class="example-spacer"></span>
-      <button mat-button color="warn">Sridhar</button>
-      <span class="example-spacer1"></span>
-      <button mat-raised-button color="warn" routerLink="/login">Logout</button>
+      <!-- <button mat-button color="warn">Sridhar</button> -->
+      <button mat-button [matMenuTriggerFor]="menu">{{username}} <mat-icon color="warn">menu</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>{{email}}</button>
+      </mat-menu>
+     <span class="example-spacer1"></span>
+      <button mat-raised-button color="warn" (click)="onLogout()">Logout</button>
   </mat-toolbar>  
 <div>
     <mat-card>Job Opportunities</mat-card>

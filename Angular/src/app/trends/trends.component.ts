@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single1 } from 'src/app/charts/data';
 import { single2} from 'src/app/charts/data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trends',
@@ -12,8 +13,10 @@ export class TrendsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  constructor() {
+  username=localStorage.getItem('username');
+  email=localStorage.getItem('email');
+  
+  constructor(public _router: Router) {
     Object.assign(this, { single1 });
     Object.assign(this, { single2 })
  
@@ -68,6 +71,11 @@ colorScheme2 = {
 
 onSelect2(event) {
   console.log(event);
+}
+  onLogout()
+  {
+    localStorage.clear();
+    this._router.navigateByUrl("/login");    
+  }
 
-
-}}
+}

@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -24,7 +24,9 @@ import { CreateOpComponent } from './opportunity/create-op/create-op.component';
 import { CreateOpService } from './shared/create-op.service';
 import { NotificationService} from "./shared/notification.service";
 import { SearchComponent } from './opportunity/search/search.component';
+import {MatMenuModule} from '@angular/material/menu';
 
+import { UserService } from 'src/app/shared/user.service';
 
 
 
@@ -51,8 +53,13 @@ import { SearchComponent } from './opportunity/search/search.component';
     MatListModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatMenuModule
   ],
-  providers: [CreateOpService,NotificationService],
+  providers: [CreateOpService,NotificationService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: UserService,
+    multi:true
+  }],
   bootstrap: [AppComponent],
   entryComponents: [CreateOpComponent]
 })

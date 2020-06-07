@@ -22,6 +22,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   MatPaginatorModule,
   MatSortModule,
   FormsModule,
-  NgxChartsModule
+  NgxChartsModule,
+  MatMenuModule
   ],
   exports: [
     CommonModule, 
@@ -75,7 +77,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatPaginatorModule,
     MatSortModule,
     FormsModule,
-    NgxChartsModule
-  ],
+    NgxChartsModule,
+    MatMenuModule
+    ],
 })
 export class CustomMaterialModule { }
