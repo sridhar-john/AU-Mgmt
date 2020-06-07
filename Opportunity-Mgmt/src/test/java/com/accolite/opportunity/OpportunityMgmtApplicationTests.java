@@ -1,6 +1,7 @@
 package com.accolite.opportunity;
 
 
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -45,11 +46,17 @@ class OpportunityManagementApplicationTests {
 		assertEquals(2,service.getAll().size());
 	}
 	@Test
-	public void deleteOpportunityTest() throws ResourceNotFoundException {
-		
-		when(repository.deleteOpportunity(2)).thenReturn(true);
+	public void deleteOpportunityTest() {
+	
+	when(repository.deleteOpportunity(2)).thenReturn(true);
+	try {
 		service.deleteOpportunity(2);
-		verify(repository,times(1)).deleteOpportunity(2);
+		
+	} catch (ResourceNotFoundException e) {
+		fail("Unexpected exception: " + e);
+	}
+	verify(repository,times(1)).deleteOpportunity(2);
+	
 }
 	@Test
 	public void addOpportunitryTest()
@@ -64,6 +71,6 @@ class OpportunityManagementApplicationTests {
 	public void updateOpportunityTest() {
 		Opportunity o = new Opportunity(2,"java dev",3,"john","java","suresh","ram@gmail.com","banglore","01/06/20","23/05/20");
 	when(repository.updateOpportunity(o)).thenReturn(true);
-	assertEquals("Deleted SucessFully",service.upadateOpportunity(o));
+	assertEquals("Updated SucessFully",service.upadateOpportunity(o));
 	}
 }

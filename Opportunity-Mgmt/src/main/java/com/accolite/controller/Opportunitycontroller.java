@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,32 +25,65 @@ public class Opportunitycontroller {
 	@Autowired
 	Opportunityservice opportunityService;
 	
+/* For  User */
+
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/users")
+	String checkUser(@RequestHeader("Authorization") String token)
+	{
+			return opportunityService.checkUser(token);
+	}
+
+	/* For  Opportunity */
+
+	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/")
-	public List<Opportunity> getAll()
+	public List<Opportunity> getAll(@RequestHeader("Authorization") String token)
 	{
-		return opportunityService.getAll();
+		
+		if(opportunityService.checkUser(token)=="Login sucessfull and User is Authenticated")
+		{
+				return opportunityService.getAll();
+		}
+		return null;
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/")
-	public String addEmployee(@RequestBody Opportunity o)
+	public String addEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
 	{
-		return opportunityService.addOpportunity(o);
+		if(opportunityService.checkUser(token)=="Login sucessfull and User is Authenticated")
+		{
+			return opportunityService.addOpportunity(o);
+		}
+		return "User is Not authenticated please login!";
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/")
-	public String updateEmployee(@RequestBody Opportunity o)
+	public String updateEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
 	{
-		return opportunityService.upadateOpportunity(o);
+		if(opportunityService.checkUser(token)=="Login sucessfull and User is Authenticated")
+		{
+			return opportunityService.upadateOpportunity(o);
+		}
+		return "User is Not authenticated please login!";
+		
 	}
+	
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/{id}")
-	public String deleteEmployee(@PathVariable("id") int id) throws ResourceNotFoundException
+	public String deleteEmployee(@PathVariable("id") int id,@RequestHeader("Authorization") String token) throws ResourceNotFoundException
 	{
-		return opportunityService.deleteOpportunity(id);
+		
+		if(opportunityService.checkUser(token)=="Login sucessfull and User is Authenticated")
+		{
+			return opportunityService.deleteOpportunity(id);
+		}
+		return "User is Not authenticated please login!";
 	}
 
 

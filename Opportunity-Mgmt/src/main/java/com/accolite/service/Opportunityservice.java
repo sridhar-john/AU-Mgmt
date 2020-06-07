@@ -16,38 +16,54 @@ public class Opportunityservice {
 	@Autowired
 	Opportunityrepository opportunityRepository;
 
-	public List<Opportunity> getAll() {
-		return opportunityRepository.findAll();
 
-	}
+	/* For Opportunity */
+public List<Opportunity> getAll() {
+	return opportunityRepository.findAll();
 
-	public String addOpportunity(Opportunity o) {
-		String responseString;
-		if(opportunityRepository.addOpportunity(o))
-			responseString="Inserted SucessFully";
-		else {
-			responseString="Somthing went wrong not added,please try again";
-		}
-		
-		return responseString;
-	}
+}
 
-	public String upadateOpportunity(Opportunity o) {
-		String responseString;
-		if(opportunityRepository.updateOpportunity(o))
-			responseString="Updated SucessFully";
-		else {
-			responseString="Somthing went wrong not added,please try again";
-		}
-		
-		return responseString;
+public String addOpportunity(Opportunity o) {
+	String responseString;
+	if(opportunityRepository.addOpportunity(o))
+		responseString="Inserted SucessFully";
+	else {
+		responseString="Somthing went wrong not added,please try again";
 	}
+	
+	return responseString;
+}
 
-	public String deleteOpportunity(int id) throws ResourceNotFoundException {
-		if(opportunityRepository.deleteOpportunity(id))
-			return "Deleted SucessFully";
-		throw new ResourceNotFoundException("Somthing went wrong not Deleted,please try again");
+public String upadateOpportunity(Opportunity o) {
+	String responseString;
+	if(opportunityRepository.updateOpportunity(o))
+		responseString="Updated SucessFully";
+	else {
+		responseString="Somthing went wrong not updated,please try again";
 	}
+	
+	return responseString;
+}
+
+public String deleteOpportunity(int id) throws ResourceNotFoundException {
+	if(opportunityRepository.deleteOpportunity(id))
+		return "Deleted SucessFully";
+	throw new ResourceNotFoundException("Somthing went wrong not Deleted,please try again");
+}
+
+
+			/* for User */
+public String checkUser(String token) {
+	
+	String responseString;
+	if(	opportunityRepository.checkUser(token))
+		responseString="Login sucessfull and User is Authenticated";
+	else {
+		responseString="Login failed,please try again";
+	}
+	
+	return responseString;
+}
 }
 
 
