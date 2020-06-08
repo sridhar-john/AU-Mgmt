@@ -20,6 +20,7 @@ import com.accolite.service.Opportunityservice;
 
 @RestController
 @RequestMapping("/opportunity")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Opportunitycontroller {
 
 	@Autowired
@@ -28,7 +29,6 @@ public class Opportunitycontroller {
 /* For  User */
 
 	
-	@CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/users")
 	String checkUser(@RequestHeader("Authorization") String token)
 	{
@@ -38,7 +38,6 @@ public class Opportunitycontroller {
 	/* For  Opportunity */
 
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/")
 	public List<Opportunity> getAll(@RequestHeader("Authorization") String token)
 	{
@@ -50,7 +49,6 @@ public class Opportunitycontroller {
 		return null;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/")
 	public String addEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
 	{
@@ -61,7 +59,6 @@ public class Opportunitycontroller {
 		return "User is Not authenticated please login!";
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/")
 	public String updateEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
 	{
@@ -74,7 +71,6 @@ public class Opportunitycontroller {
 	}
 	
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/{id}")
 	public String deleteEmployee(@PathVariable("id") int id,@RequestHeader("Authorization") String token) throws ResourceNotFoundException
 	{
