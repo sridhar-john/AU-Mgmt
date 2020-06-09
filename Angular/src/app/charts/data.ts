@@ -1,4 +1,5 @@
-export var single1 = [
+export var single1 = 
+[
     {
       "name": "FullStack developer",
       "value": 60

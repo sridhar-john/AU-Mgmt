@@ -28,11 +28,19 @@ export class SearchComponent implements OnInit {
   delete_message:any;
   ngOnInit(): void {
   
+    if(localStorage.getItem('login')=="loggedIn")
+    {
+      this.notificationService.sucess('Login sucessfull and User is Authenticated !!!');
+      localStorage.setItem('login',"loggedOut");
+    }
+   
     this.service.getOpportunity().subscribe((data: any[])=>{
       console.log(data);
       this.dataSource.data = data;
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
+
+  
       
     }
     ,(error) => {

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single1 } from 'src/app/charts/data';
+// import {single1} from 'src/app/opportunity/search/search.component';
 import { single2} from 'src/app/charts/data';
 import { Router } from '@angular/router';
+import { CreateOpService } from 'src/app/shared/create-op.service';
 
 @Component({
   selector: 'app-trends',
@@ -11,17 +13,24 @@ import { Router } from '@angular/router';
 })
 export class TrendsComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
-  username=localStorage.getItem('username');
-  email=localStorage.getItem('email');
-  
-  constructor(public _router: Router) {
+ 
+  constructor(public _router: Router,public service:CreateOpService) {
     Object.assign(this, { single1 });
     Object.assign(this, { single2 })
  
    }
+  username=localStorage.getItem('username');
+  email=localStorage.getItem('email');
+  
+ 
+  ngOnInit(): void {
+
+  
+}
+  
+  
   single1: any[];
+  
   view1: any[] = [700, 400];
  // options
  gradient1: boolean = false;

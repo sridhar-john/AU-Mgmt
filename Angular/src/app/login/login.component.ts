@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
            console.log(result)
             if(result === "Login sucessfull and User is Authenticated")
             {
+              localStorage.setItem('login',"loggedIn");
              this._router.navigateByUrl("/opportunity");
             }
             else
