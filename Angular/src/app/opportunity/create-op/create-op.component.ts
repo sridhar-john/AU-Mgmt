@@ -92,7 +92,7 @@ export class CreateOpComponent implements OnInit {
          
           console.log("inside update");
           console.log(this.service.form.value);
-          let resp=this.service.upadteOpportunity(this.service.form.value);
+          let resp=this.service.updateOpportunity(this.service.form.value);
           resp.subscribe((data)=>{
             console.log(data)
             this.update_message=data;

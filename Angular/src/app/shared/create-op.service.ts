@@ -53,7 +53,7 @@ export class CreateOpService {
   }
 
 
-  upadteOpportunity(opportunity)
+  updateOpportunity(opportunity)
   {
     return this.http.put("http://localhost:8080/opportunity/",opportunity,{responseType:'text' as 'json'});
   }
