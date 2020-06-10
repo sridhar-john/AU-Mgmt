@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single1 } from 'src/app/charts/data';
-// import {single1} from 'src/app/opportunity/search/search.component';
 import { single2} from 'src/app/charts/data';
 import { Router } from '@angular/router';
 import { CreateOpService } from 'src/app/shared/create-op.service';
@@ -27,12 +25,10 @@ export class TrendsComponent implements OnInit {
 
   
 }
-  
-  
   single1: any[];
   
   view1: any[] = [700, 400];
- // options
+
  gradient1: boolean = false;
  showLegend1: boolean = true;
  showLabels: boolean = true;
@@ -63,7 +59,6 @@ multi2: any[];
 
 view2: any[] = [700, 400];
 
-// options
 showXAxis = true;
 showYAxis = true;
 gradient2 = false;

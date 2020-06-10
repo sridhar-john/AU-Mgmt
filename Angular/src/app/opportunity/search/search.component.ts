@@ -35,18 +35,15 @@ export class SearchComponent implements OnInit {
     }
    
     this.service.getOpportunity().subscribe((data: any[])=>{
-      console.log(data);
+    
       this.dataSource.data = data;
       this.dataSource.sort=this.sort;
-      this.dataSource.paginator=this.paginator;
-
-  
+      this.dataSource.paginator=this.paginator;  
       
     }
     ,(error) => {
       alert("User is not Authenticated Please login");
       this._router.navigateByUrl("/login");
-     // alert(JSON.stringify(error, undefined, 2));
     });
   }
 
@@ -70,7 +67,6 @@ export class SearchComponent implements OnInit {
 
 onEdit(row)
 {
-  console.log(row);
   this.service.populateForm(row);
   const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
@@ -85,9 +81,7 @@ onDelete(id)
   if(confirm("Are You sure  to delete this record?")){
     let res=this.service.deleteOpportunity(id);
     res.subscribe(data => {
-      console.log(data)
       this.delete_message=data;
-      console.log(this.delete_message);
     });
     this.notificationService.warn('Deleted sucessfully!');
   }

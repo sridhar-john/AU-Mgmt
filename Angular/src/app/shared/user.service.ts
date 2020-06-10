@@ -6,7 +6,7 @@ import { HttpInterceptor,HttpClient } from '@angular/common/http';
 })
 export class UserService implements HttpInterceptor {
   
-
+  BASE_URL="http://localhost:8080/opportunity/users";
   constructor(private http: HttpClient) { }
 
  intercept(req,next){
@@ -19,7 +19,7 @@ export class UserService implements HttpInterceptor {
  }
   checkUser()
   {
-    return this.http.get("http://localhost:8080/opportunity/users",{responseType:'text' as 'json'});
+    return this.http.get(this.BASE_URL,{responseType:'text' as 'json'});
   }
   getToken()
 {
