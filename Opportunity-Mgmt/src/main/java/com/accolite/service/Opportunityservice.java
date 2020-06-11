@@ -32,6 +32,7 @@ public String addOpportunity(Opportunity o) {
 	}
 	
 	return responseString;
+	
 }
 
 public String upadateOpportunity(Opportunity o) {
@@ -57,9 +58,9 @@ public String checkUser(String token) {
 	
 	String responseString;
 	if(	opportunityRepository.checkUser(token))
-		responseString="Login sucessfull and User is Authenticated";
+		responseString="200 OK";
 	else {
-		responseString="Login failed,please try again";
+		responseString="401 Unauthorized";
 	}
 	
 	return responseString;
