@@ -11,7 +11,7 @@ I)Spring boot Application
                              model/Opprtunity.java
                              repository/Opportunityrepository
                              opportunity/Application.java
-			      		exception
+			      	exception
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
 	* getAllOpportunities
