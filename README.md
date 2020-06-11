@@ -14,10 +14,15 @@ I)Spring boot Application
 			      	exception
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
+	
 	* getAllOpportunities
+	
 	* updateOpportunity
+	
 	* createOpportunity
+	
 	* deleteOpportunity
+	
 	* checkUser
 	
 => GlobalExceptionHandling added.
@@ -32,6 +37,7 @@ II)Angular Application:
 => Angular design Screen shots are attached.
 
 => Project structure of Angular appliaction:
+	
 	Inside my Angular/src/app
                        
                        ├───charts    ---data.ts
@@ -43,8 +49,11 @@ II)Angular Application:
                        ├───shared    --services files
                        └───trends
 => Angular-unit testing :
+
 			implemented the form Validation testing
+
 			implemented the Services testing
+
 			implemented some component testing
 			
 => Google login is used for Authentication and Token is send to spring boot for Validation
