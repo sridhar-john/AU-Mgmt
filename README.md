@@ -41,8 +41,9 @@ II)Angular Application:
                        ├───shared    --services files
                        └───trends
 => Angular-unit testing :
-	 implemented the form Validation testing
-	 implemented the Services testing
-	 implemented some component testing
+			implemented the form Validation testing
+			implemented the Services testing
+			implemented some component testing
+			
 => Google login is used for Authentication and Token is send to spring boot for Validation
 
