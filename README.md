@@ -21,7 +21,9 @@ I)Spring boot Application
 	* checkUser
 	
 => GlobalExceptionHandling added.
+
 => Unit testing done for Service and Dao layer using Mockito-junit for the CRUD functions.
+
 => token is used for Authentication and its send from angular using http Interceptor
 
 
