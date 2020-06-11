@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
          let resp=this.service.checkUser();
          
          resp.subscribe(result => this.ngZone.run(() =>{
-            if(result === "Login sucessfull and User is Authenticated")
+            if(result === "200 OK")
             {
               localStorage.setItem('login',"loggedIn");
              this._router.navigateByUrl("/opportunity");

@@ -16,7 +16,7 @@ export var single1 =
       "name": "Mainframe developer",
       "value": 40
     }
-  ];
+];
 
 
 // Bar chart

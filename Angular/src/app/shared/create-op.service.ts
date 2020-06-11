@@ -35,8 +35,8 @@ export class CreateOpService {
       skill: '',
       creator: '',
       creator_email: '',
-      experience: null,
-      job_location: '',
+      experience: 0,
+      job_location: '0',
       joining_date: '',
       updated_date: ''
     });
@@ -65,7 +65,10 @@ export class CreateOpService {
 
   populateForm(opportunity)
   {
+    console.log("populate data:",opportunity);
+    
     this.form.setValue(opportunity);
+    
 
   }
 

@@ -67,11 +67,13 @@ export class SearchComponent implements OnInit {
 
 onEdit(row)
 {
+  console.log("one row :",row);
   this.service.populateForm(row);
   const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
   dialogConfig.autoFocus=true;
   dialogConfig.width= "60%";
+  dialogConfig.data= row;
   this.dialog.open(CreateOpComponent,dialogConfig);
   
 }
