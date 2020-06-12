@@ -40,15 +40,12 @@ export class TrendsComponent implements OnInit {
    domain: ['#ff3333', '#ffff1a', '#66ff66', '#1a8cff']
  };
  onSelect1(data): void {
-  console.log('Item clicked', JSON.parse(JSON.stringify(data)));
 }
 
 onActivate1(data): void {
-  console.log('Activate', JSON.parse(JSON.stringify(data)));
 }
 
 onDeactivate1(data): void {
-  console.log('Deactivate', JSON.parse(JSON.stringify(data)));
 }
 
 
@@ -74,12 +71,12 @@ colorScheme2 = {
 };
 
 onSelect2(event) {
-  console.log(event);
+ 
 }
-  onLogout()
-  {
+onLogout()
+{
     localStorage.clear();
     this._router.navigateByUrl("/login");    
-  }
+}
 
 }

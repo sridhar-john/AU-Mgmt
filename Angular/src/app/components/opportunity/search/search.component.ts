@@ -1,6 +1,6 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { CreateOpService } from 'src/app/shared/create-op.service';
-import { Opportunity } from 'src/app/Opportunity';
+import { Opportunity } from 'src/app/models/Opportunity';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -62,7 +62,20 @@ export class SearchComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus=true;
     dialogConfig.width= "60%";
-    this.dialog.open(CreateOpComponent,dialogConfig);
+
+    const dialogRef = this.dialog.open(CreateOpComponent, dialogConfig)
+  dialogRef.afterClosed().subscribe(result => {
+  
+    this.service.getOpportunity().subscribe((data: any[])=>{
+    
+      this.dataSource.data = data;
+      this.dataSource.sort=this.sort;
+      this.dataSource.paginator=this.paginator;  
+    }
+   
+    );
+});
+    
   }
 
 onEdit(row)
@@ -74,8 +87,20 @@ onEdit(row)
   dialogConfig.autoFocus=true;
   dialogConfig.width= "60%";
   dialogConfig.data= row;
-  this.dialog.open(CreateOpComponent,dialogConfig);
   
+  const dialogRef = this.dialog.open(CreateOpComponent, dialogConfig)
+  dialogRef.afterClosed().subscribe(result => {
+  
+    this.service.getOpportunity().subscribe((data: any[])=>{
+    
+      this.dataSource.data = data;
+      this.dataSource.sort=this.sort;
+      this.dataSource.paginator=this.paginator;  
+      
+    }
+   
+    );
+});
 }
 
 onDelete(id)
@@ -84,6 +109,16 @@ onDelete(id)
     let res=this.service.deleteOpportunity(id);
     res.subscribe(data => {
       this.delete_message=data;
+
+      this.service.getOpportunity().subscribe((data: any[])=>{
+    
+        this.dataSource.data = data;
+        this.dataSource.sort=this.sort;
+        this.dataSource.paginator=this.paginator;         
+      }
+     
+      );
+
     });
     this.notificationService.warn('Deleted sucessfully!');
   }

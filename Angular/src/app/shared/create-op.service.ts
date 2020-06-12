@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {FormGroup,FormControl,Validators} from "@angular/forms";
 import {HttpClient} from '@angular/common/http';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CreateOpService {
 
   constructor(private http: HttpClient) { }
 
-  BASE_URL="http://localhost:8080/opportunity/";
+  BASE_URL=environment.BASE_URL;
   public op=[];
   form: FormGroup = new FormGroup(
     {
@@ -65,7 +66,6 @@ export class CreateOpService {
 
   populateForm(opportunity)
   {
-    console.log("populate data:",opportunity);
     
     this.form.setValue(opportunity);
     

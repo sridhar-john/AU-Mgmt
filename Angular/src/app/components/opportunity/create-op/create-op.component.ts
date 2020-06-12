@@ -10,24 +10,21 @@ import { NotificationService} from "../../shared/notification.service";
 })
 export class CreateOpComponent implements OnInit {
   selectedExperience: string;
-
-
-  constructor(public service: CreateOpService,public notificationService: NotificationService,
-    public dialogRef:MatDialogRef<CreateOpComponent>,@Inject(MAT_DIALOG_DATA) public data:any) 
-    { }
-
-  experience=[1,2,3,4,5
-  ];
-
-  location=["chennai","banglore","mumbai","hyderabad"
-  ];
- 
- 
   js:string;
   us:string;
   jd:Date;
   ud:Date;
+  experience=[1,2,3,4,5];
+  location=["Chennai","Banglore","Mumbai","Hyderabad"];
+  public opp =[];
 
+  submit_message:any;
+  update_message:any;
+  
+
+  constructor(public service: CreateOpService,public notificationService: NotificationService,
+    public dialogRef:MatDialogRef<CreateOpComponent>,@Inject(MAT_DIALOG_DATA) public data:any) 
+    { }
   
   onClear()
   {
@@ -35,11 +32,6 @@ export class CreateOpComponent implements OnInit {
     this.service.initializeFormGroup();
   }
 
-  public opp =[];
- 
-  submit_message:any;
-  update_message:any;
-  
   onSubmit()
   {
       
@@ -58,9 +50,7 @@ export class CreateOpComponent implements OnInit {
             updated_date:this.us
          }
         );
-      console.log(this.service.form);
-        console.log(this.service.form.value);
-        
+               
           let res=this.service.insertOpportunity(this.service.form.value);
           res.subscribe((data)=>{
             this.submit_message=data;
@@ -68,7 +58,6 @@ export class CreateOpComponent implements OnInit {
           });
         }
         else{
-
           this.js=this.jd.toDateString();
           var splited=this.js.split(" ",4);
           this.js=splited[2]+"/"+splited[1]+"/"+splited[3];
@@ -79,12 +68,10 @@ export class CreateOpComponent implements OnInit {
              joining_date:this.js,
               updated_date:this.us});
         
-
-              console.log(this.service.form.value);
           let resp=this.service.updateOpportunity(this.service.form.value);
           resp.subscribe((data)=>{
             this.update_message=data;
-           
+             
           });
 
         }
@@ -104,33 +91,25 @@ export class CreateOpComponent implements OnInit {
 
   onExperience(ob)
   {
-    console.log('experience changed...');
     let selected=ob.value;
-    console.log(selected);
     this.service.form.get('experience').setValue(selected);
 
   }
   onLocation(ob)
   {
-    console.log('loaction changed...');
     let selected=ob.value;
-    console.log(selected);
     this.service.form.get('job_location').setValue(selected);
   
   }
-  selected:string;
     ngOnInit(){
  
     if((this.service.form.get('id').value))
     {
       this.service.form.get('job_location').setValue(this.data.job_location);
-
       this.service.form.get('experience').setValue(this.data.experience);
-
-      this.service.form.get('joining_date').setValue(this.data.joining_date);
-      
+      this.jd= new Date(this.data.joining_date) ;          
+      this.ud= new Date(this.data.updated_date) ;    
     }
- 
 
   }
   

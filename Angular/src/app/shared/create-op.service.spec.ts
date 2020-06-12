@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { CreateOpService } from './create-op.service';
 import { HttpClientTestingModule ,HttpTestingController} from '@angular/common/http/testing';
-import { Opportunity } from '../Opportunity';
+import { Opportunity } from '../models/Opportunity';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('CareteOpService', () => {
