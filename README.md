@@ -38,16 +38,24 @@ II)Angular Application:
 
 => Project structure of Angular appliaction:
 	
-	Inside my Angular/src/app
-                       
-                       ├───charts    ---data.ts
-                       ├───core     ----materials.model file 
-                       ├───login    ---login page
-                       ├───opportunity
-                       │   ├───create-op  
-                       │   └───search
-                       ├───shared    --services files
-                       └───trends
+	Inside my Angular/src
+                      
+				├───app
+				│   ├───components
+				│   │   ├───charts
+				│   │   ├───login
+				│   │   ├───opportunity
+				│   │   │   ├───create-op
+				│   │   │   └───search
+				│   │   └───trends
+				│   ├───core
+				│   ├───models
+				│   └───shared
+				├───assets
+				│   └───img
+				└───environments
+		       
+		       
 => Angular-unit testing :
 
 			implemented the form Validation testing
