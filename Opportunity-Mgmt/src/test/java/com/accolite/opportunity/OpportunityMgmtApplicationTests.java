@@ -19,8 +19,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.accolite.exception.ResourceNotFoundException;
 import com.accolite.model.Opportunity;
-import com.accolite.repository.Opportunityrepository;
-import com.accolite.service.Opportunityservice;
+import com.accolite.repository.OpportunityRepository;
+import com.accolite.service.OpportunityService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,10 +32,10 @@ class OpportunityManagementApplicationTests {
 	}
 	
 	@Autowired
-	private Opportunityservice service;
+	private OpportunityService service;
 	
 	@MockBean
-	private Opportunityrepository repository;
+	private OpportunityRepository repository;
 	
 	@Test
 	public void getAllTest()

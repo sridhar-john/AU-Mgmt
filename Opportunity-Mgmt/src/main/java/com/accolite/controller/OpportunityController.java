@@ -3,7 +3,6 @@ package com.accolite.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,73 +15,50 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accolite.exception.ResourceNotFoundException;
 import com.accolite.model.Opportunity;
-import com.accolite.service.Opportunityservice;
+import com.accolite.service.OpportunityService;
 
 @RestController
 @RequestMapping("/opportunity")
-@CrossOrigin(origins = "http://localhost:4200")
-public class Opportunitycontroller {
+public class OpportunityController {
 
-	
 	@Autowired
-	Opportunityservice opportunityService;
-	
-/* For  User */
+	OpportunityService opportunityService;
 
-	
-    @GetMapping("/users")
-	String checkUser(@RequestHeader("Authorization") String token)
-	{
-			return opportunityService.checkUser(token);
-	}
-
-	/* For  Opportunity */
-
-	
 	@GetMapping("/")
-	public List<Opportunity> getAll(@RequestHeader("Authorization") String token)
-	{
-		
-		if(opportunityService.checkUser(token)=="200 OK")
-		{
-				return opportunityService.getAll();
+	public List<Opportunity> getAll(@RequestHeader("Authorization") String token) {
+
+		if (opportunityService.checkUser(token)) {
+			return opportunityService.getAll();
 		}
 		return null;
 	}
-	
+
 	@PostMapping("/")
-	public String addEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
-	{
-		if(opportunityService.checkUser(token)=="200 OK")
-		{
+	public String addOpportunity(@RequestBody Opportunity o, @RequestHeader("Authorization") String token) {
+		if (opportunityService.checkUser(token)) {
 			return opportunityService.addOpportunity(o);
 		}
 		return "401 Unauthorized";
 	}
-	
+
 	@PutMapping("/")
-	public String updateEmployee(@RequestBody Opportunity o,@RequestHeader("Authorization") String token)
-	{
-		if(opportunityService.checkUser(token)=="200 OK")
-		{
+	public String updateOpportunity(@RequestBody Opportunity o, @RequestHeader("Authorization") String token) {
+		if (opportunityService.checkUser(token)) {
 			return opportunityService.upadateOpportunity(o);
 		}
-		
+
 		return "401 Unauthorized";
-		
+
 	}
-	
-	
+
 	@DeleteMapping("/{id}")
-	public String deleteEmployee(@PathVariable("id") int id,@RequestHeader("Authorization") String token) throws ResourceNotFoundException
-	{
-		
-		if(opportunityService.checkUser(token)=="200 OK")
-		{
+	public String deleteOpportunity(@PathVariable("id") int id, @RequestHeader("Authorization") String token)
+			throws ResourceNotFoundException {
+
+		if (opportunityService.checkUser(token)) {
 			return opportunityService.deleteOpportunity(id);
 		}
 		return "401 Unauthorized";
 	}
-
 
 }
