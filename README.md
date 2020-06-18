@@ -46,7 +46,7 @@
 
 => token is used for Authentication and its send from angular using http Interceptor
 
-=>Code Coverage for Java side= ** 88% **
+=>Code Coverage for Java side= **88%**
 
 => Screenshots are attached in /screenshot folder
 
