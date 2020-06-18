@@ -10,6 +10,7 @@ DataBase : MySql DB
 I)Spring boot Application
 
 => Project Structure of spring boot application:
+
 	inside my src/main/java/com/accolite/
 	
 				->controller
