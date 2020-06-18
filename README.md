@@ -9,7 +9,7 @@ I)Spring boot Application
                              controller
                              service
                              model
-                             repository
+			     repository
                              opportunity
 			     exception
 			     configuration
