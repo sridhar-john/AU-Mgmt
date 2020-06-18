@@ -5,12 +5,19 @@ I)Spring boot Application
 
 => Project Structure of spring boot application:
 	inside my src/main/java/com/accolite/
+	
 				controller
+				
 				service
+				
 				model
+				
 				repository
+				
 				opportunity
+				
 				exception
+				
 				configuration
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
