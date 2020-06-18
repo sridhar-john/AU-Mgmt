@@ -1,17 +1,32 @@
 # AU-Mgmt
-Opportunity Management project using Angular and Spring-boot with MySql DB
+
+## Opportunity Management Project
+
+###### Front-end: Angular
+
+###### Back-end : Spring-boot
+
+###### DataBase : MySql DB
  
-I)Spring boot Application
+### I)Spring boot Application
 
 => Project Structure of spring boot application:
+
 	inside my src/main/java/com/accolite/
-   
-                             controller/Opportunitycontroller.java
-                             service/Opportunityservice.java
-                             model/Opprtunity.java
-                             repository/Opportunityrepository
-                             opportunity/Application.java
-			     	exception
+	
+				->controller
+				
+				->service
+				
+				->model
+				
+				->repository
+				
+				->opportunity
+				
+				->exception
+				
+				->configuration
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
 	
@@ -27,12 +42,15 @@ I)Spring boot Application
 	
 => GlobalExceptionHandling added.
 
-=> Unit testing done for Service and Dao layer using Mockito-junit for the CRUD functions.
+=> Unit testing done for Controller,Service and Dao layers using Mockito-junit for all the CRUD functions.
 
 => token is used for Authentication and its send from angular using http Interceptor
 
+=>Code Coverage for Java side= **88%**
 
-II)Angular Application:
+=> Screenshots are attached in /screenshot folder
+
+### II)Angular Application:
 
 => Angular design Screen shots are attached.
 
