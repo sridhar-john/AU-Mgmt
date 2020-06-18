@@ -42,9 +42,11 @@
 	
 => GlobalExceptionHandling added.
 
-=> Unit testing done for Service and Dao layer using Mockito-junit for the CRUD functions.
+=> Unit testing done for Controller,Service and Dao layers using Mockito-junit for all the CRUD functions.
 
 => token is used for Authentication and its send from angular using http Interceptor
+
+=>Code Coverage for Java side=** 88% **
 
 
 ### II)Angular Application:
