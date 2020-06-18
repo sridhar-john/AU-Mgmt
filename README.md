@@ -2,13 +2,13 @@
 
 ## Opportunity Management Project
 
-Front-end: Angular
+###### Front-end: Angular
 
-Back-end : Spring-boot
+###### Back-end : Spring-boot
 
-DataBase : MySql DB
+###### DataBase : MySql DB
  
-I)Spring boot Application
+### I)Spring boot Application
 
 => Project Structure of spring boot application:
 
@@ -47,7 +47,7 @@ I)Spring boot Application
 => token is used for Authentication and its send from angular using http Interceptor
 
 
-II)Angular Application:
+### II)Angular Application:
 
 => Angular design Screen shots are attached.
 
