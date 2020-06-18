@@ -11,8 +11,8 @@ I)Spring boot Application
                              model
                              repository
                              opportunity
-			     	exception
-				configuration
+			     exception
+			     configuration
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
 	
