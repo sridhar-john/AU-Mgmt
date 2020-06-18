@@ -1,24 +1,30 @@
 # AU-Mgmt
-Opportunity Management project using Angular and Spring-boot with MySql DB
+Opportunity Management Project
+
+Front-end: Angular
+
+Back-end : Spring-boot
+
+DataBase : MySql DB
  
 I)Spring boot Application
 
 => Project Structure of spring boot application:
 	inside my src/main/java/com/accolite/
 	
-				controller
+				->controller
 				
-				service
+				->service
 				
-				model
+				->model
 				
-				repository
+				->repository
 				
-				opportunity
+				->opportunity
 				
-				exception
+				->exception
 				
-				configuration
+				->configuration
 							 
 => All the Apis are created for CRUD(GET,POST,PUT,DELETE) operations of opportunity and user validation
 	
